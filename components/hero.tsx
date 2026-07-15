@@ -40,7 +40,7 @@ export default function Hero() {
 
       {/* Hero Content */}
       <motion.div
-        className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-6 pt-24"
+        className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-6 pt-16 md:pt-24"
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
