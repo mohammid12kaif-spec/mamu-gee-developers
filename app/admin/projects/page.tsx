@@ -122,19 +122,19 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-gray-100 p-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex items-center justify-between">
+       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-4xl font-bold">Manage Projects</h1>
 
           <Link
             href="/admin/projects/add"
-            className="rounded-xl bg-black px-6 py-3 text-white hover:bg-yellow-500 hover:text-black"
+            className="w-full sm:w-auto rounded-xl bg-black px-6 py-3 text-center text-white hover:bg-yellow-500 hover:text-black"
           >
             + Add Project
           </Link>
         </div>
 
-        <div className="overflow-hidden rounded-2xl bg-white shadow-lg">
-          <table className="w-full">
+       <div className="overflow-x-auto rounded-2xl bg-white shadow-lg">
+        <table className="min-w-[850px] w-full">
             <thead className="bg-black text-white">
               <tr>
                 <th className="p-4 text-left">Title</th>
