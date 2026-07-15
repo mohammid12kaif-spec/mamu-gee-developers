@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mamugeedevelopers.com"), // Change after deployment if needed
+  metadataBase: new URL("https://mamu-gee-developers.com"), // Change after deployment if needed
 
   title: {
     default: "Mamu Gee Developers | Premium Real Estate in Karnataka",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Mamu Gee Developers offers premium residential plots, layouts, villas, and real estate projects in Karnataka with trusted quality and modern infrastructure.",
+    "Mamu Gee Developers offers premium residential plots, layouts, villas, and real estate projects in Greater Noida, Haldoni,and nearby areas with trusted quality and modern infrastructure.",
 
   keywords: [
     "Mamu Gee Developers",
@@ -91,8 +92,23 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
-      </body>
+  {children}
+
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-R9F00L63Q9"
+    strategy="afterInteractive"
+  />
+
+  <Script id="google-analytics" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9F00L63Q9');
+    `}
+  </Script>
+</body>
     </html>
   );
 }
