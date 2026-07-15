@@ -3,15 +3,15 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://mamugeedevelopers.com",
+      url: "https://mamu-gee-developer.com",
       lastModified: new Date(),
     },
     {
-      url: "https://mamugeedevelopers.com/projects",
+      url: "https://mamu-gee-developer.com/projects",
       lastModified: new Date(),
     },
     {
-      url: "https://mamugeedevelopers.com/about",
+      url: "https://mamu-gee-developer.com/about",
       lastModified: new Date(),
     },
   ];
