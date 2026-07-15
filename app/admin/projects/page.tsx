@@ -21,7 +21,6 @@ export default function ProjectsPage() {
 
   useEffect(() => {
     const initialize = async () => {
-      // Check if admin is logged in
       const { data: sessionData } = await supabase.auth.getSession();
 
       if (!sessionData.session) {
@@ -29,7 +28,6 @@ export default function ProjectsPage() {
         return;
       }
 
-      // Fetch projects
       const { data, error } = await supabase
         .from("projects")
         .select("*")
@@ -47,29 +45,71 @@ export default function ProjectsPage() {
     initialize();
   }, [router]);
 
-  async function deleteProject(id: number) {
-    const confirmDelete = confirm("Delete this project?");
+ async function deleteProject(id: number) {
+  const confirmDelete = confirm(
+    "Delete this project and all its images?"
+  );
 
-    if (!confirmDelete) return;
+  if (!confirmDelete) return;
 
-    const { error } = await supabase
+  // Get all project images
+  const { data: images, error: imageFetchError } = await supabase
+    .from("project_images")
+    .select("*")
+    .eq("project_id", id);
+
+  if (imageFetchError) {
+    alert(imageFetchError.message);
+    return;
+  }
+
+  // Delete images from Storage
+  if (images && images.length > 0) {
+    const fileNames = images.map((img) =>
+      decodeURIComponent(img.image_url.split("/").pop() || "")
+    );
+
+    const { error: storageError } = await supabase.storage
       .from("projects")
-      .delete()
-      .eq("id", id);
+      .remove(fileNames);
 
-    if (error) {
-      alert(error.message);
-      return;
+    if (storageError) {
+      console.log(storageError);
     }
 
-    // Refresh projects after delete
-    const { data } = await supabase
-      .from("projects")
-      .select("*")
-      .order("id", { ascending: false });
+    // Delete image records
+    const { error: imageDeleteError } = await supabase
+      .from("project_images")
+      .delete()
+      .eq("project_id", id);
 
-    setProjects(data || []);
+    if (imageDeleteError) {
+      alert(imageDeleteError.message);
+      return;
+    }
   }
+
+  // Delete project
+  const { error: projectError } = await supabase
+    .from("projects")
+    .delete()
+    .eq("id", id);
+
+  if (projectError) {
+    alert(projectError.message);
+    return;
+  }
+
+  // Refresh project list
+  const { data } = await supabase
+    .from("projects")
+    .select("*")
+    .order("id", { ascending: false });
+
+  setProjects(data || []);
+
+  alert("✅ Project deleted successfully!");
+}
 
   if (loading) {
     return (
@@ -111,20 +151,29 @@ export default function ProjectsPage() {
                   <td className="p-4">{project.status}</td>
                   <td className="p-4">{project.price}</td>
 
-                  <td className="p-4 text-center">
-                    <Link
-                      href={`/admin/projects/edit/${project.id}`}
-                      className="mr-3 inline-block rounded-lg bg-yellow-500 px-4 py-2 text-black hover:bg-yellow-600"
-                    >
-                      Edit
-                    </Link>
+                  <td className="p-4">
+                    <div className="flex justify-center gap-2">
+                      <Link
+                        href={`/admin/projects/edit/${project.id}`}
+                        className="rounded-lg bg-yellow-500 px-4 py-2 text-black hover:bg-yellow-600"
+                      >
+                        Edit
+                      </Link>
 
-                    <button
-                      onClick={() => deleteProject(project.id)}
-                      className="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
-                    >
-                      Delete
-                    </button>
+                      <Link
+                        href={`/admin/projects/gallery/${project.id}`}
+                        className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                      >
+                        Gallery
+                      </Link>
+
+                      <button
+                        onClick={() => deleteProject(project.id)}
+                        className="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
