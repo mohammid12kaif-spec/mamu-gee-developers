@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mamugeedevelopers.com/sitemap.xml",
+    sitemap: "https://mamu-gee-developer.com/sitemap.xml",
   };
 }

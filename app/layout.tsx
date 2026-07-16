@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mamu-gee-developers.com"), // Change after deployment if needed
 
+  alternates: {
+  canonical: "https://mamu-gee-developer.com",
+},
+
   title: {
     default: "Mamu Gee Developers | Premium Real Estate in Greater Noida, Uttar Pradesh",
     template: "%s | Mamu Gee Developers",
@@ -94,6 +98,47 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+  <body className="min-h-full flex flex-col">
+
+  <Script
+    id="local-business-schema"
+    type="application/ld+json"
+    strategy="afterInteractive"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        name: "Mamu Gee Developers",
+        url: "https://mamu-gee-developer.com",
+        logo: "https://mamu-gee-developer.com/logo.png",
+        image: "https://mamu-gee-developer.com/logo.png",
+        telephone: "+91-9911737738",
+        email: "amirmukhiya033@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Greater Noida",
+          addressRegion: "Uttar Pradesh",
+          addressCountry: "IN",
+        },
+        areaServed: ["Greater Noida", "Haldoni", "Noida"],
+        sameAs: [],
+      }),
+    }}
+  />
+
+  {children}
+
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-R9F00L63Q9"
+    strategy="afterInteractive"
+  />
+
+  <Script id="google-analytics" strategy="afterInteractive">
+    {/* ... */}
+  </Script>
+
+</body>
+  
   {children}
 
   <Script

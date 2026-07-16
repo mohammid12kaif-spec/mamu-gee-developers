@@ -35,13 +35,27 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center gap-8 text-white">
-            <a href="#about" className="hover:text-yellow-400">About</a>
-            <a href="#projects" className="hover:text-yellow-400">Projects</a>
-            <a href="#gallery" className="hover:text-yellow-400">Gallery</a>
-            <a href="#contact" className="hover:text-yellow-400">Contact</a>
-          </nav>
+         <nav className="hidden md:flex items-center gap-8 text-white">
+  <Link href="/" className="hover:text-yellow-400">
+    Home
+  </Link>
+
+  <Link href="/about" className="hover:text-yellow-400">
+    About
+  </Link>
+
+  <Link href="/projects" className="hover:text-yellow-400">
+    Projects
+  </Link>
+
+  <Link href="/#gallery" className="hover:text-yellow-400">
+    Gallery
+  </Link>
+
+  <Link href="/#contact" className="hover:text-yellow-400">
+    Contact
+  </Link>
+</nav>
 
           {/* Desktop Call Button */}
           <a
@@ -65,48 +79,56 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="fixed top-[72px] left-0 z-40 w-full bg-black/95 text-white md:hidden">
-          <nav className="flex flex-col p-6 text-lg">
+         <nav className="flex flex-col p-6 text-lg">
 
-            <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className="border-b border-gray-700 py-4"
-            >
-              About
-            </a>
+  <Link
+    href="/"
+    onClick={() => setOpen(false)}
+    className="border-b border-gray-700 py-4"
+  >
+    Home
+  </Link>
 
-            <a
-              href="#projects"
-              onClick={() => setOpen(false)}
-              className="border-b border-gray-700 py-4"
-            >
-              Projects
-            </a>
+  <Link
+    href="/about"
+    onClick={() => setOpen(false)}
+    className="border-b border-gray-700 py-4"
+  >
+    About
+  </Link>
 
-            <a
-              href="#gallery"
-              onClick={() => setOpen(false)}
-              className="border-b border-gray-700 py-4"
-            >
-              Gallery
-            </a>
+  <Link
+    href="/projects"
+    onClick={() => setOpen(false)}
+    className="border-b border-gray-700 py-4"
+  >
+    Projects
+  </Link>
 
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="border-b border-gray-700 py-4"
-            >
-              Contact
-            </a>
+  <Link
+    href="/#gallery"
+    onClick={() => setOpen(false)}
+    className="border-b border-gray-700 py-4"
+  >
+    Gallery
+  </Link>
 
-            <a
-              href="tel:+919911737738"
-              className="mt-6 rounded-lg bg-yellow-500 py-3 text-center font-bold text-black"
-            >
-              📞 Call Now
-            </a>
+  <Link
+    href="/#contact"
+    onClick={() => setOpen(false)}
+    className="border-b border-gray-700 py-4"
+  >
+    Contact
+  </Link>
 
-          </nav>
+  <a
+    href="tel:+919911737738"
+    className="mt-6 rounded-lg bg-yellow-500 py-3 text-center font-bold text-black"
+  >
+    📞 Call Now
+  </a>
+
+</nav>
         </div>
       )}
     </>
