@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mamu-gee-developers.com"), // Change after deployment if needed
 
   title: {
-    default: "Mamu Gee Developers | Premium Real Estate in Karnataka",
+    default: "Mamu Gee Developers | Premium Real Estate in Greater Noida, Uttar Pradesh",
     template: "%s | Mamu Gee Developers",
   },
 
@@ -25,32 +25,34 @@ export const metadata: Metadata = {
     "Mamu Gee Developers offers premium residential plots, layouts, villas, and real estate projects in Greater Noida, Haldoni,and nearby areas with trusted quality and modern infrastructure.",
 
   keywords: [
-    "Mamu Gee Developers",
-    "Real Estate",
-    "Plots",
-    "Residential Plots",
-    "Layouts",
-    "Karnataka",
-    "Property",
-    "Villas",
-    "Builders",
-    "Land for Sale",
-  ],
+  "Mamu Gee Developers",
+  "Greater Noida",
+  "Noida",
+  "Uttar Pradesh",
+  "Delhi NCR",
+  "Real Estate",
+  "Residential Plots",
+  "Plots in Greater Noida",
+  "Property in Greater Noida",
+  "Villas",
+  "Land for Sale",
+  "Builders",
+],
 
   authors: [
     {
-      name: "Mamu Gee Developers",
+      name: "Mamu Gee Developer",
     },
   ],
 
-  creator: "Mamu Gee Developers",
+  creator: "Mamu Gee Developer",
 
   openGraph: {
-    title: "Mamu Gee Developers",
+    title: "Mamu Gee Developer",
     description:
-      "Premium residential plots and real estate projects in Karnataka.",
-    url: "https://mamugeedevelopers.com",
-    siteName: "Mamu Gee Developers",
+      "Premium residential plots, villas, and real estate projects in Greater Noida, Uttar Pradesh.",
+    url: "https://mamu-gee-developer.com",
+    siteName: "Mamu Gee Developer",
     locale: "en_IN",
     type: "website",
     images: [
@@ -67,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mamu Gee Developers",
     description:
-      "Premium residential plots and real estate projects in Karnataka.",
+     "Discover premium residential plots, villas, and real estate projects in Greater Noida, Haldoni, and nearby areas. Mamu Gee Developers delivers trusted property solutions with quality infrastructure and transparent service.",
     images: ["/logo.png"],
   },
 
