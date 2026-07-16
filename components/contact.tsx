@@ -82,8 +82,13 @@ ${message}
           </p>
 
           <h2 className="mt-3 text-5xl font-bold">
-            Get In Touch
-          </h2>
+  Book A Site Visit Today
+</h2>
+
+          <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+  Speak directly with our property experts and find the perfect residential or commercial investment in Greater Noida.
+</p>
+
         </div>
 
         <div className="grid gap-12 lg:grid-cols-2">
@@ -91,18 +96,30 @@ ${message}
           <div>
 
             <h3 className="mb-6 text-3xl font-bold">
-              MAMU GEE Developer Pvt. Ltd.
+              Mamu Gee Developer Pvt. Ltd.
             </h3>
 
             <div className="space-y-5 text-lg">
 
-              <p>
-                📞 <strong>Phone:</strong> +91 99117 37738
-              </p>
+             <p>
+  📞 <strong>Phone:</strong>{" "}
+  <a
+    href="tel:+919911737738"
+    className="text-yellow-400 hover:underline"
+  >
+    +91 99117 37738
+  </a>
+</p>
 
               <p>
-                📧 <strong>Email:</strong> amirmukhiya033@gmail.com
-              </p>
+  📧 <strong>Email:</strong>{" "}
+  <a
+    href="mailto:amirmukhiya033@gmail.com"
+    className="text-yellow-400 hover:underline"
+  >
+    amirmukhiya033@gmail.com
+  </a>
+</p>
 
               <p>
                 📍 <strong>Office:</strong><br />
@@ -111,7 +128,11 @@ ${message}
                 Gautam Buddha Nagar,<br />
                 Uttar Pradesh - 201306
               </p>
-
+      <p>
+        🕒 <strong>Office Hours:</strong><br />
+        Monday – Sunday<br />
+        9:00 AM – 8:00 PM
+     </p>
             </div>
 
             <div className="mt-8 flex gap-4">
@@ -138,8 +159,8 @@ ${message}
           <div>
 
            <form
-  onSubmit={handleSubmit}
-  className="space-y-5 rounded-2xl bg-white p-8 text-black shadow-xl"
+              onSubmit={handleSubmit}
+              className="space-y-5 rounded-2xl bg-white p-8 text-black shadow-xl"
 >
                       <input
                 type="text"
@@ -200,6 +221,7 @@ ${message}
 
                 <div className="mt-16 overflow-hidden rounded-2xl shadow-lg">
           <iframe
+            title="Mamu Gee Developer Office Location"
             src="https://www.google.com/maps?q=Haldoni,Kulesra,Gautam%20Buddha%20Nagar&output=embed"
             className="h-[450px] w-full"
             loading="lazy"

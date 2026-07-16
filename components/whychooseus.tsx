@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           className="text-4xl font-bold text-center"
         >
-          Why Choose Mamu Gee Developers
+          Why Choose Mamu Gee Developer
         </motion.h2>
 
         <p className="text-center text-gray-600 mt-4 max-w-2xl mx-auto">

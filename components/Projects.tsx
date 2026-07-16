@@ -48,7 +48,7 @@ export default function Projects() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mt-14">
-          {projects.map((project) => (
+          {projects.slice(0, 3).map((project) => (
             <div
               key={project.id}
               className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500"
@@ -80,6 +80,14 @@ export default function Projects() {
             </div>
           ))}
         </div>
+        <div className="mt-14 text-center">
+  <Link
+    href="/projects"
+    className="inline-block rounded-xl bg-yellow-500 px-8 py-4 font-semibold text-black hover:bg-yellow-400 transition"
+  >
+    View All Projects →
+  </Link>
+</div>
       </div>
     </section>
   );
