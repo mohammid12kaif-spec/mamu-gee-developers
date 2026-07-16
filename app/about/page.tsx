@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/contact";
 import Whatsapp from "@/components/whatsapp";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -86,11 +87,13 @@ export default function AboutPage() {
   <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
     <div className="flex justify-center">
-      <img
-        src="/director.png"
-        alt="Managing Director - Amir Mukhiya"
-        className="w-80 h-80 rounded-2xl object-cover shadow-2xl"
-      />
+     <Image
+  src="/director.png"
+  alt="Managing Director - Amir Mukhiya"
+  width={320}
+  height={320}
+  className="w-80 h-80 rounded-2xl object-cover shadow-2xl"
+/>
     </div>
 
     <div>
